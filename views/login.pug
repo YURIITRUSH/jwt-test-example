@@ -1,0 +1,10 @@
+extends layout
+block content
+  .wrapper
+    h1 Login
+    form(action='/users/login' method='POST')
+      .form-field
+        input(name='email' type='text' placeholder='email')
+      .form-field
+        input(name='password' type='text' placeholder='password')
+      button Sing in

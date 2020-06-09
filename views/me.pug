@@ -1,0 +1,7 @@
+extends layout
+block content
+  .wrapper
+    h1 Profile
+    h2 #{user.name} #{user.email}
+    form(action='/users/logout' method='POST')
+      button Logout

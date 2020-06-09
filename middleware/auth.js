@@ -2,10 +2,11 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
 const auth = async(req, res, next) => {
-    if (!req.header('Authorization')) {
-        return res.status(403).send({ error: 'Premissions denied' })
-    }
-    const token = req.header('Authorization').replace('Bearer ', '')
+    // if (!req.header('Authorization')) {
+    //     return res.status(403).send({ error: 'Premissions denied' })
+    // }
+    // const token = req.header('Authorization').replace('Bearer ', '')
+    var token = req.cookies.auth;
     jwt.verify(token, process.env.JWT_KEY, async (err , data) => {
         if (err) {
             return res.status(401).send();
